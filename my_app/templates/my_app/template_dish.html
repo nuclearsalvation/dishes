@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>dish</title>
+    </head>
+    <body>
+            <h1>{{dish.name}}</h1>
+            <h3>{{dish.time}}</h3>
+            <p>{{dish.description}}</p>
+            <p>{{dish.body}}</p>
+            {% if dish.img %}
+                <img src="{{dish.img.url}}" alt="{{dish.name}}" height="400px" width="400px">
+            {% endif %}
+            <p><a href="{% url 'myapp:delete' pk=dish.pk %}">Delete</a></p>
+            <p><a href="{% url 'myapp:update' pk=dish.pk %}">Update</a></p>
+    </body>
+</html>

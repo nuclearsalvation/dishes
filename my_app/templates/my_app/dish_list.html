@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>1</title>
+    </head>
+    <body>
+        <h1>Dish list</h1>
+        {% for dish in dishes %}
+            <h1>{{dish.name}}</h1>
+            <h3>{{dish.time}}</h3>
+            <p>{{dish.description}}</p>
+            <p>{{dish.author}}</p>
+            {% if dish.img %}
+                <img src="{{dish.img.url}}" alt="{{dish.name}}" height="400px" width="400px">
+            {% endif %}
+            <p><a href="{% url 'myapp:dish' pk=dish.pk %}">Details</a></p>
+            <p><a href="{% url 'myapp:delete' pk=dish.pk %}">Delete</a></p>
+            <p><a href="{% url 'myapp:update' pk=dish.pk %}">Update</a></p>
+        {% endfor %}
+    </body>
+</html>
