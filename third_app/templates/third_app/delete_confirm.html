@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Delete product </title>
+    </head>
+    <body>
+        <h1>Are you sure to delete {{object.name}}?</h1>
+        <div>
+        </div>
+        {% if request.user.is_superuser or object.author == request.user.username %}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Delete</button>
+        </form>
+        {% else %}
+        <h1>
+            <a href="{% url 'thirdapp:notes_list' %}">Notes list</a>
+        </h1>
+        {% endif %}
+    </body>
+</html>

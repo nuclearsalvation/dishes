@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>1</title>
+    </head>
+    <body>
+        <h1>Notes</h1>
+        {% for note in notes %}
+            <h1>{{note.name}}</h1>
+            <h2>{{note.time}}</h2>
+            <p>{{note.body}}</p>
+            <p>{% for name in note.links.all.values %}
+                <p>{{name.name}}</p>
+                {% endfor %}
+            </p>
+            <p>{% for img in note.images.all.values %}
+                <img src="../uploads/{{img.img}}" alt="no img" height="400px" width="400px">
+                {% endfor %}
+
+            </p>
+        {% endfor %}
+    </body>
+</html>
